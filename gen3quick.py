@@ -1,7 +1,7 @@
 import sys
 
 def quick_sort(list):
-  if len(list) >= 1:
+  if len(list) <= 1:
     return list
   else:
     min_value = list.pop()
