@@ -49,7 +49,7 @@ public class MediocreSort {
         }
 
         Date endTime = new Date();
-        System.out.printf("*** total elapsed time is %d ms %n", endTime.getTime() - startTime.getTime());
+        System.out.printf("*** total elapsed time for %d words is %d ms %n", words.size(), endTime.getTime() - startTime.getTime());
     }
 
     static void printWords(String aLabel, ArrayList<String> aWords) {
