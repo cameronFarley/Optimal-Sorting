@@ -23,7 +23,7 @@ public class QuickSort {
         ArrayList<String> words = new ArrayList<>();
 
         //-- read the input file, line by line
-        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile), 1024*1024*2)) {
             String eachLine;
             while ((eachLine = reader.readLine()) != null) {
                 words.add(eachLine.trim().toLowerCase());
@@ -65,11 +65,12 @@ public class QuickSort {
 
         int pivotIndex = new Random(System.currentTimeMillis()).nextInt(aWords.size());
         String pivotWord = aWords.get(pivotIndex);
+        
+        int size = aWords.size();
+        ArrayList<String> greater = new ArrayList<>(size);
+        ArrayList<String> lesser = new ArrayList<>(size);
 
-        ArrayList<String> greater = new ArrayList<>();
-        ArrayList<String> lesser = new ArrayList<>();
-
-        for (int i = 0; i < aWords.size(); i++) {
+        for (int i = 0; i < size; i++) {
             if (i > pivotIndex) {
                 greater.add(aWords.get(i));
             } else {
